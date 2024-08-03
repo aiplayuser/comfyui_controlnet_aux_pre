@@ -129,7 +129,7 @@ async def getStylesList(request):
 class ControlNetPreprocessorSelector:
     @classmethod
     def INPUT_TYPES(s):
-        return { "required": { "cn": ( ["none"]+folder_paths.get_filename_list("controlnet"), ), 
+        return { "required": { "cn": ( folder_paths.get_filename_list("controlnet"), ), 
                                "image": ("IMAGE",), },
                  "hidden": { "prompt": "PROMPT", "my_unique_id": "UNIQUE_ID" }, 
                  "optional": { "resolution": ("INT", {"default": 512, "min": 64, "max": 4096, "step": 64 } ) }    }
@@ -143,7 +143,7 @@ class ControlNetPreprocessorSelector:
         controlnet = comfy.controlnet.load_controlnet( folder_paths.get_full_path("controlnet", cn) )
         pre = prompt[my_unique_id]["inputs"]['select_styles']
         print(prompt)
-        if pre == "": return (controlnet, image )
+        if pre == "none": return (controlnet, image )
         else:
             aux_class = AUX_NODE_MAPPINGS[pre]
             input_types = aux_class.INPUT_TYPES()
