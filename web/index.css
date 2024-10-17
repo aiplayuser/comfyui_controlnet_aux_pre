@@ -8,7 +8,7 @@
     padding-bottom:5px;
     border-bottom:2px solid var(--border-color);
 }
-.Preprocessor .tools button.delete{
+.Preprocessor .tools button.Empty{
     height:20px;
     border-radius: 8px;
     border: 2px solid var(--border-color);
@@ -18,13 +18,13 @@
     box-shadow:none;
     cursor:pointer;
 }
-.Preprocessor .tools button.delete:hover{
+.Preprocessor .tools button.Empty:hover{
     filter: brightness(1.2);
 }
-.Preprocessor .tools textarea.search{
+.Preprocessor .tools textarea.searchpre{
     flex:1;
     margin-left:10px;
-    height:10px;
+    height:20px;
     line-height:8px;
     border-radius: 8px;
     border: 2px solid var(--border-color);
